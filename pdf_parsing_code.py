@@ -48,6 +48,7 @@ sindices = [i for i, s in enumerate(clean) if spattern in s]
 ### find the line previous and the line after the idicies that contain the info i want
 ## find the items in clean with the indicies at those three spots
 education = []
+ed_list = []
 
 for i in indices:
     for s in sindices:
@@ -56,18 +57,18 @@ for i in indices:
             education.append(s)
         if i == s:
             education.append(i)
-            education.append(s)
+            ed_list.append(i)
 
+if not ed_list:
+    m1 = min(education)
+    m2 = min(education) + 1
+    ed_final = [m1, m2]
+else:
+    ed_final = [min(education)]
 
-m1 = min(education)
-m2 = min(education) + 1
-
-ed_final = [m1, m2]
 
 ed_print = []
 
 for ed in ed_final:
     ed_print.append(clean[ed])
-
-
 
